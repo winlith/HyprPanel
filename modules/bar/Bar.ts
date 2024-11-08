@@ -17,6 +17,7 @@ import {
     Ram,
     Cpu,
     CpuTemp,
+    CpuCombo,
     Storage,
     Netstat,
     KbInput,
@@ -57,6 +58,7 @@ type Section =
     | 'ram'
     | 'cpu'
     | 'cputemp'
+    | 'cpucombo'
     | 'storage'
     | 'netstat'
     | 'kbinput'
@@ -110,6 +112,7 @@ const widget = {
     ram: (): Button<Child, Attribute> => WidgetContainer(Ram()),
     cpu: (): Button<Child, Attribute> => WidgetContainer(Cpu()),
     cputemp: (): Button<Child, Attribute> => WidgetContainer(CpuTemp()),
+    cpucombo: (): Button<Child, Attribute> => WidgetContainer(CpuCombo()),
     storage: (): Button<Child, Attribute> => WidgetContainer(Storage()),
     netstat: (): Button<Child, Attribute> => WidgetContainer(Netstat()),
     kbinput: (): Button<Child, Attribute> => WidgetContainer(KbInput()),

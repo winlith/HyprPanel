@@ -14,6 +14,7 @@ import { SysTray } from './systray/index';
 import { Ram } from '../../customModules/ram/index';
 import { Cpu } from '../../customModules/cpu/index';
 import { CpuTemp } from 'customModules/cputemp/index';
+import { CpuCombo } from 'customModules/cpucombo/index';
 import { Storage } from 'customModules/storage/index';
 import { Netstat } from 'customModules/netstat/index';
 import { KbInput } from 'customModules/kblayout/index';
@@ -39,6 +40,7 @@ export {
     Ram,
     Cpu,
     CpuTemp,
+    CpuCombo,
     Storage,
     Netstat,
     KbInput,
