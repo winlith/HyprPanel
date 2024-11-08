@@ -25,6 +25,7 @@ import {
     Submap,
     Weather,
     Power,
+    GpuCombo,
 } from './Exports';
 
 import { BarItemBox as WidgetContainer } from '../shared/barItemBox.js';
@@ -59,6 +60,7 @@ type Section =
     | 'cpu'
     | 'cputemp'
     | 'cpucombo'
+    | 'gpucombo'
     | 'storage'
     | 'netstat'
     | 'kbinput'
@@ -113,6 +115,7 @@ const widget = {
     cpu: (): Button<Child, Attribute> => WidgetContainer(Cpu()),
     cputemp: (): Button<Child, Attribute> => WidgetContainer(CpuTemp()),
     cpucombo: (): Button<Child, Attribute> => WidgetContainer(CpuCombo()),
+    gpucombo: (): Button<Child, Attribute> => WidgetContainer(GpuCombo()),
     storage: (): Button<Child, Attribute> => WidgetContainer(Storage()),
     netstat: (): Button<Child, Attribute> => WidgetContainer(Netstat()),
     kbinput: (): Button<Child, Attribute> => WidgetContainer(KbInput()),

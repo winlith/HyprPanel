@@ -208,6 +208,33 @@
 
 /* 
  * #################################
+ * #      Gpu Module Styling       #
+ * #################################
+ */
+@include styleModule(
+    //
+    // class name
+    'gpu',
+    // label color
+    $bar-buttons-modules-gpu-text,
+    // icon color
+    $bar-buttons-modules-gpu-icon,
+    // icon background if split style is used
+    $bar-buttons-modules-gpu-icon_background,
+    // label background
+    $bar-buttons-modules-gpu-background,
+    // inner spacing
+    $bar-buttons-modules-gpu-spacing,
+    // if border enabled
+    $bar-buttons-modules-gpu-enableBorder,
+    // border color
+    $bar-buttons-modules-gpu-border,
+    // custom font size
+    1.05em //
+);
+
+/* 
+ * #################################
  * #    Storage Module Styling     #
  * #################################
  */

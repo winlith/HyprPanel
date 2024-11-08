@@ -9,29 +9,39 @@ import Button from 'types/widgets/button';
 import { inputHandler } from 'customModules/utils';
 import { BarBoxChild } from 'lib/types/bar';
 import { Attribute, Child } from 'lib/types/widget';
-import { UnitType } from 'lib/types/weather';
-import { cpuUsage } from 'customModules/cpu/index';
-import { cpuTemp } from 'customModules/cputemp/index';
+import { getGpuStats, GpuStats } from './gpu';
+import { pollVariable } from 'customModules/PollVar';
 
 // All the user configurable options for the cpu module that are needed
-const { label, round, leftClick, rightClick, middleClick, scrollUp, scrollDown, icon } =
-    options.bar.customModules.cpu;
-const { showUnit, unit } = options.bar.customModules.cpuTemp;
+const {
+    label,
+    showUnit,
+    leftClick,
+    rightClick,
+    middleClick,
+    scrollUp,
+    scrollDown,
+    pollingInterval,
+    icon,
+} = options.bar.customModules.gpu;
 
-export const CpuCombo = (): BarBoxChild => {
-    const renderLabel = (cpuUsg: number, cpuTemp: number, tempUnit: UnitType, shwUnit: boolean, rnd: boolean): string => {
-        const unitLabel = tempUnit === 'imperial' ? 'F' : 'C';
-        const unit = shwUnit ? ` ${unitLabel}` : '';
-        return rnd ? `${Math.round(cpuUsg)}% ${cpuTemp.toString()}°${unit}` : `${cpuUsg.toFixed(2)}% ${cpuTemp.toString()}°${unit}`;
+export const gpuStats = Variable<GpuStats>({ temp: '', usage: '' });
+
+pollVariable(gpuStats, [showUnit.bind('value')], pollingInterval.bind('value'), getGpuStats);
+
+export const GpuCombo = (): BarBoxChild => {
+    const renderLabel = (stats: GpuStats, shwUnit: boolean): string => {
+        const unit = shwUnit ? ` C` : '';
+        return `${stats.usage}% ${stats.temp}°${unit}`;
     };
 
-    const cpuModule = module({
+    const gpuModule = module({
         textIcon: icon.bind('value'),
-        label: Utils.merge([cpuUsage.bind('value'), cpuTemp.bind('value'), unit.bind('value'), showUnit.bind('value'), round.bind('value')], (cpuUsg, cpuTemp, tempUnit, shwUnit, rnd) => {
-            return renderLabel(cpuUsg, cpuTemp, tempUnit, shwUnit, rnd);
+        label: Utils.merge([gpuStats.bind('value'), showUnit.bind('value')], (stats, shwUnit) => {
+            return renderLabel(stats, shwUnit);
         }),
-        tooltipText: 'CPU',
-        boxClass: 'cpu',
+        tooltipText: 'GPU',
+        boxClass: 'gpu',
         showLabelBinding: label.bind('value'),
         props: {
             setup: (self: Button<Child, Attribute>) => {
@@ -56,5 +66,5 @@ export const CpuCombo = (): BarBoxChild => {
         },
     });
 
-    return cpuModule;
+    return gpuModule;
 };

@@ -237,6 +237,71 @@ export const CustomModuleSettings = (): Scrollable<GtkWidget, Attribute> =>
 
                 /*
                  ************************************
+                 *            GPU TEMP              *
+                 ************************************
+                 */
+                Header('GPU'),
+                Option({
+                    opt: options.theme.bar.buttons.modules.gpu.enableBorder,
+                    title: 'Button Border',
+                    type: 'boolean',
+                }),
+                Option({
+                    opt: options.bar.customModules.gpu.showUnit,
+                    title: 'Show Unit',
+                    type: 'boolean',
+                }),
+                Option({
+                    opt: options.bar.customModules.gpu.icon,
+                    title: 'Cpu Temperature Icon',
+                    type: 'string',
+                }),
+                Option({
+                    opt: options.bar.customModules.gpu.label,
+                    title: 'Show Label',
+                    type: 'boolean',
+                }),
+                Option({
+                    opt: options.theme.bar.buttons.modules.gpu.spacing,
+                    title: 'Spacing',
+                    type: 'string',
+                }),
+                Option({
+                    opt: options.bar.customModules.gpu.pollingInterval,
+                    title: 'Polling Interval',
+                    type: 'number',
+                    min: 100,
+                    max: 60 * 24 * 1000,
+                    increment: 1000,
+                }),
+                Option({
+                    opt: options.bar.customModules.gpu.leftClick,
+                    title: 'Left Click',
+                    type: 'string',
+                }),
+                Option({
+                    opt: options.bar.customModules.gpu.rightClick,
+                    title: 'Right Click',
+                    type: 'string',
+                }),
+                Option({
+                    opt: options.bar.customModules.gpu.middleClick,
+                    title: 'Middle Click',
+                    type: 'string',
+                }),
+                Option({
+                    opt: options.bar.customModules.gpu.scrollUp,
+                    title: 'Scroll Up',
+                    type: 'string',
+                }),
+                Option({
+                    opt: options.bar.customModules.gpu.scrollDown,
+                    title: 'Scroll Down',
+                    type: 'string',
+                }),
+
+                /*
+                 ************************************
                  *           STORAGE                *
                  ************************************
                  */

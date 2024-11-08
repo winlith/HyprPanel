@@ -65,6 +65,23 @@ export const CustomModuleTheme = (): Scrollable<GtkWidget, Attribute> => {
                 }),
                 Option({ opt: options.theme.bar.buttons.modules.cpuTemp.border, title: 'Border', type: 'color' }),
 
+                Header('GPU'),
+                Option({ opt: options.theme.bar.buttons.modules.gpu.text, title: 'Text', type: 'color' }),
+                Option({ opt: options.theme.bar.buttons.modules.gpu.icon, title: 'Icon', type: 'color' }),
+                Option({
+                    opt: options.theme.bar.buttons.modules.gpu.background,
+                    title: 'Label Background',
+                    type: 'color',
+                }),
+                Option({
+                    opt: options.theme.bar.buttons.modules.gpu.icon_background,
+                    title: 'Icon Background',
+                    subtitle:
+                        "Applies a background color to the icon section of the button.\nRequires 'split' button styling.",
+                    type: 'color',
+                }),
+                Option({ opt: options.theme.bar.buttons.modules.gpu.border, title: 'Border', type: 'color' }),
+
                 Header('Storage'),
                 Option({ opt: options.theme.bar.buttons.modules.storage.text, title: 'Text', type: 'color' }),
                 Option({ opt: options.theme.bar.buttons.modules.storage.icon, title: 'Icon', type: 'color' }),
