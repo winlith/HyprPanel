@@ -168,12 +168,14 @@ const options = mkOptions(OPTIONS, {
                 style: opt<BarButtonStyles>('default'),
                 enableBorders: opt(false),
                 borderSize: opt('0.1em'),
+                borderColor: opt(colors.lavender),
                 monochrome: opt(false),
                 spacing: opt('0.25em'),
                 padding_x: opt('0.7rem'),
                 padding_y: opt('0.2rem'),
                 y_margins: opt('0.4em'),
                 radius: opt('0.3em'),
+                innerRadiusMultiplier: opt('0.4'),
                 opacity: opt(100),
                 background_opacity: opt(100),
                 background_hover_opacity: opt(100),
@@ -466,6 +468,7 @@ const options = mkOptions(OPTIONS, {
                         song: opt(tertiary_colors.lavender),
                         artist: opt(tertiary_colors.teal),
                         album: opt(tertiary_colors.pink),
+                        timestamp: opt(colors.text),
                         background: {
                             color: opt(colors.crust),
                         },
@@ -878,6 +881,7 @@ const options = mkOptions(OPTIONS, {
         }),
         launcher: {
             icon: opt('󰣇'),
+            autoDetectIcon: opt(false),
             rightClick: opt(''),
             middleClick: opt(''),
             scrollUp: opt(''),
@@ -1119,6 +1123,9 @@ const options = mkOptions(OPTIONS, {
         media: {
             hideAuthor: opt(false),
             hideAlbum: opt(false),
+            displayTime: opt(false),
+            displayTimeTooltip: opt(false),
+            noMediaText: opt('No Media Currently Playing'),
         },
         bluetooth: {
             showBattery: opt(false),
